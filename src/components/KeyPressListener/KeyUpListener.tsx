@@ -7,6 +7,7 @@ const KeyUpListener = () => {
     
     useEffect(() => {
         const handleOnKeyUp = (e: KeyboardEvent) => {
+            e.preventDefault();
             const reg = /Enter|Backspace/
             if (reg.test(e.key)) {
                 dispatch(setKey({

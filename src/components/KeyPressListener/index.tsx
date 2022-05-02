@@ -11,6 +11,7 @@ const KeyPressListener = () => {
     
     useEffect(() => {
         const handleOnKeyPress = (e: KeyboardEvent) => {
+            e.preventDefault();
             // Используется регулярное выражение, чтобы сохранять в state только необходимое
             const reg = /\-|\+|\*|\/|\%|\=|\(|\)|\,|\.|^[0-9]$/
             if (reg.test(e.key)) {
