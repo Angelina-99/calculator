@@ -182,6 +182,11 @@ const calculatorSlice = createSlice({
             }
         },
         addInputValue(state, action: PayloadAction<string>) {
+            if (state.result !== '0') {
+                state.inputValue = '';
+                state.mathStr = '';
+                state.result = '0';
+            }
             if (!state.mathStr.endsWith(`|${CalculatorActionTypes.pircent}|`)) {
                 if (action.payload === ',') {
                     if (!state.mathStr.endsWith('.')) {
@@ -207,6 +212,11 @@ const calculatorSlice = createSlice({
             }
         },
         addNewAction(state, action: PayloadAction<CalculatorActionTypes>) {
+            if (state.result !== '0') {
+                state.inputValue = '';
+                state.mathStr = '';
+                state.result = '0';
+            }
             let shouldAdd = false;
             let strToAdd = '';
             let shouldRemoveLastAction = false;

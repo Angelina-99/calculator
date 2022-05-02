@@ -12,7 +12,7 @@ const KeyPressListener = () => {
     useEffect(() => {
         const handleOnKeyPress = (e: KeyboardEvent) => {
             // Используется регулярное выражение, чтобы сохранять в state только необходимое
-            const reg = /\-|\+|\*|\/|\%|\=|\(|\)|^[0-9]$/
+            const reg = /\-|\+|\*|\/|\%|\=|\(|\)|\,|\.|^[0-9]$/
             if (reg.test(e.key)) {
                 dispatch(setKey({
                     key: e.key,

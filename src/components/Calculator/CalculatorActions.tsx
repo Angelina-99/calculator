@@ -27,8 +27,12 @@ function CalculatorActions() {
     }
 
     useEffect(() => {
-        const reg = /^[0-9]$/;
         const key = keyPressed.key;
+        if (key === '.' || key === ',') {
+            dispatch(addInputValue(','));
+            return;
+        }
+        const reg = /^[0-9]$/;
         if (reg.test(key) || key === '(' || key === ')') {
             dispatch(addInputValue(key));
             return;
